@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Ecommerce Recommendation - Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h1 class="text-center">Ecommerce Product Recommendation System</h1>
+        <p class="text-center lead">Discover products you'll love based on advanced recommendation algorithms</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Filter Category</h3>
+            </div>
+            <div class="card-body">
+                <select id="category-select" class="form-select">
+                    <option value="">Select a category</option>
+                    {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Select Product</h3>
+            </div>
+            <div class="card-body">
+                <select id="product-select" class="form-select" disabled>
+                    <option value="">Select a product</option>
+                </select>
+                <div class="d-grid gap-2 mt-3">
+                    <button id="get-recommendations-btn" class="btn btn-primary" disabled>Get Recommendations</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="product-details-container" class="row mb-4" style="display: none;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h3 class="card-title mb-0">Selected Product Details</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4 id="product-name" class="mb-3"></h4>
+                        <p><strong>Product ID:</strong> <span id="product-id"></span></p>
+                        <p><strong>Category:</strong> <span id="product-category"></span></p>
+                        <p><strong>Rating:</strong> <span id="product-rating"></span></p>
+                        <p><strong>Product Link:</strong> <a id="product-link-href" href="#" target="_blank">View on Store</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img id="product-image" class="img-fluid product-img" alt="Product Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="recommendations-container" class="row" style="display: none;">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h3 class="card-title mb-0">Recommendations</h3>
+            </div>
+            <div class="card-body">
+                <div id="recommendations-list" class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loading-indicator" class="text-center" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Finding the best recommendations for you...</p>
+</div>
+
+<!-- Thêm phần tìm kiếm dưới navigation -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">Tìm kiếm sản phẩm</h3>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" id="search-input" class="form-control" placeholder="Nhập từ khóa tìm kiếm...">
+                    <button class="btn btn-primary" type="button" id="search-button">Tìm kiếm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5" id="about">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h3 class="card-title mb-0">About This System</h3>
+            </div>
+            <div class="card-body">
+                <p>This recommendation system uses a combination of two powerful techniques:</p>
+                <ul>
+                    <li><strong>Deep Matrix Factorization:</strong> A neural network-based approach that understands complex patterns in user-item interactions to provide personalized recommendations.</li>
+                    <li><strong>Popularity Model:</strong> A method that recommends products based on their popularity indicators such as ratings, reviews count, and estimated purchase frequency.</li>
+                </ul>
+                <p>The system also leverages keyword-based data for enhanced personalization when using the search feature.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
