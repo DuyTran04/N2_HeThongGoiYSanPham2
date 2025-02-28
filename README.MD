@@ -1,4 +1,4 @@
-# Hệ thống gợi ý thương mại điện tử (E-commerce Recommendation System)
+# Hệ thống gợi ý sản phẩm (Product Recommendation System)
 
 Hệ thống gợi ý sản phẩm sử dụng kết hợp hai mô hình: Deep Matrix Factorization và Popularity Model, được phát triển với Flask framework.
 
@@ -15,7 +15,7 @@ Ngoài ra, hệ thống cũng hỗ trợ tìm kiếm và gợi ý dựa trên t�
 ## Cấu trúc dự án
 
 ```
-ecommerce-recommendation/
+N2_HeThongGoiYSanPham2/
 ├── static/                      # Thư mục chứa tài nguyên tĩnh
 │   ├── css/
 │   ├── js/
