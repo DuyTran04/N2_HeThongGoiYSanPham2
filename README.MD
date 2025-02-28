@@ -152,4 +152,4 @@ python train_all_models.py
 - **amazon_keywords.csv**: Dữ liệu từ khóa cho cá nhân hóa
 
 ## Tiến độ
-- Hiện tại được flask với 2 model nhưng chưa được mở rộng về phần user, và hiểu được cái thuật toán toàn bộ.
+- Hiện tại được kết nối với flask framework với 2 model nhưng chưa được mở rộng về phần user , và chưa hiểu các thuật toán.
